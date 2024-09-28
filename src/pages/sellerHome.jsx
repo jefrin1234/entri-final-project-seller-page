@@ -33,8 +33,8 @@ function SellerHome() {
           </button>
         </div>
         <nav className="p-6 space-y-4">
-          <ul className="space-y-4">
-            <li className="flex items-center">
+          <ul className="space-y-4 flex flex-col gap-6">
+            <li className="flex items-center ">
               <Link
                 to="notifications"
                 onClick={handleLinkClick}
@@ -86,16 +86,7 @@ function SellerHome() {
               </Link>
             </li>
            
-            <li>
-              <Link
-                to="sales"
-                onClick={handleLinkClick}
-                className={`flex items-center p-3 rounded-md transition-colors duration-300 ${location.pathname.includes('sales') ? 'bg-purple-900 text-green-900' : 'hover:bg-blue-600 hover:text-white'}`}
-              >
-                <DollarSign className="mr-3 h-5 w-5" />
-                Sales
-              </Link>
-            </li>
+          
             <li>
               <button
                
