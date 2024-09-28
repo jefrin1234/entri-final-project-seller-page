@@ -5,8 +5,9 @@ import { Outlet } from 'react-router-dom'
 import { setSellerNotifications } from '../Slices/userSlice'
 import {useDispatch} from 'react-redux'
 import { axiosInstance } from '../config/axiosInstance'
-import SellerHeader from '../compoenents/SellerHeader'
+
 import Footer from '../compoenents/Footer'
+import SellerHeader from '../compoenents/SellerHeader'
 
 
 function SellerLayout() {
