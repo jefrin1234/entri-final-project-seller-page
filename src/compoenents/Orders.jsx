@@ -1,16 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { axiosInstance } from '../config/axiosInstance';
 import { FaBoxOpen } from 'react-icons/fa';
-
+import { useSelector } from 'react-redux';
 function SellerOrders() {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  const {seller} = useSelector(state=>state.user)
+
+  console.log(seller.id)
+
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const response = await axiosInstance.get('/orders/seller-orders');
+        const response = await axiosInstance.get(`/orders/seller-orders/${seller.id}`);
         console.log(response.data.data)
         setOrders(response.data.data);
         setLoading(false);
