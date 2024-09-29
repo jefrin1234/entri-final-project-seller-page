@@ -11,19 +11,18 @@ function SellerHeader() {
   return (
     <header className="text-white bg-green-500 shadow-md fixed top-0 left-0 w-full z-50">
       <div className="container mx-auto flex items-center justify-between p-4">
-        {/* Logo/Brand Name */}
+       
         <div className="text-2xl font-bold">
           <Link to="/" className="hover:text-green-700 transition-colors duration-300">Trends</Link>
         </div>
 
-        {/* Navigation Menu */}
+       
         <nav className="hidden md:flex space-x-6">
           <Link to="/seller/dashboard" className="text-lg font-semibold hover:text-green-700 transition-colors duration-300">
             Seller Dashboard
           </Link>
         </nav>
 
-        {/* Header Actions */}
         <div className="flex items-center space-x-4">
           <div className="dropdown dropdown-end">
             <div

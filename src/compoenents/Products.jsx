@@ -5,8 +5,8 @@ import Spinner from './LoadingComponent';
 
 function Products() {
   
-  const [currentPage, setCurrentPage] = useState(1); // Store the current page
-  const [data, error, loading, totalPages] = useProducts(currentPage); // Pass currentPage to the hook
+  const [currentPage, setCurrentPage] = useState(1); 
+  const [data, error, loading, totalPages] = useProducts(currentPage); 
 
   const handleNextPage = () => {
     if (currentPage < totalPages) setCurrentPage(currentPage + 1);
@@ -32,7 +32,7 @@ function Products() {
             ))}
           </div>
 
-          {/* Pagination Controls */}
+          
           <div className="flex justify-center mt-16 space-x-4">
             <button
               onClick={handlePreviousPage}

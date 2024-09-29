@@ -7,10 +7,10 @@ const fetchSellerDetails = async (sellerId) => {
       method: 'GET',
       url: `/seller/profile/${sellerId}`,
     });
-    return response.data; // Return the data
+    return response.data; 
   } catch (error) {
     toast.error("Error getting profile");
-    return null; // Return null in case of error
+    return null;
   }
 };
 

@@ -47,58 +47,38 @@ const useSellerForm = () => {
     setCurrentStep((prevStep) => prevStep - 1);
   };
 
-  // const onSubmit = async (data) => {
-  //   console.log(data)
-  //   if (currentStep < 3) {
-  //     setCurrentStep((prevStep) => prevStep + 1);
-  //   } else {
-  //     try {
-  //       setLoading(true);
-  //       const formData = new FormData();
-  //       Object.keys(data).forEach((key) => formData.append(key, data[key]));
-  //       await createSellerApi(formData);
-  //       navigate('/verification-status');
-  //     } catch (error) {
-  //       console.log(error)
-  //       toast.error(toast.error.message || 'An error occurred during registration.');
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   }
-  // };
-
   const onSubmit = async (data) => {
-    console.log(data); // Debugging line
+    console.log(data); 
     if (currentStep < 3) {
-      // If not on the last step, move to the next step
+     
       setCurrentStep((prevStep) => prevStep + 1);
     } else {
       try {
         setLoading(true);
         const formData = new FormData();
   
-        // Loop through the data keys to append each value to FormData
+     
         Object.keys(data).forEach((key) => {
           if (key === 'registrationCertificate') {
-            // Assuming it's a FileList, append the first file if it exists
+           
             const fileList = data[key]; 
             if (fileList && fileList.length > 0) {
-              formData.append('registrationCertificate', fileList[0]); // Append the first file
+              formData.append('registrationCertificate', fileList[0]); 
             }
           } else {
-            formData.append(key, data[key]); // Append other form fields
+            formData.append(key, data[key]); 
           }
         });
   
-        // Make the API call to create the seller
+      
         await createSellerApi(formData);
-        navigate('/verification-status'); // Navigate to the verification status page
+        navigate('/verification-status');
       } catch (error) {
         console.log(error);
-        // Show an error message if the registration fails
+       
         toast.error(error.message || 'An error occurred during registration.');
       } finally {
-        setLoading(false); // Reset loading state
+        setLoading(false); 
       }
     }
   };

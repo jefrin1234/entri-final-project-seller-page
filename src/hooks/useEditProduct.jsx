@@ -1,5 +1,5 @@
 import { useState } from "react";
-import updateProduct from "../services/updateProducts"; // Assuming you have the service here
+import updateProduct from "../services/updateProducts"; 
 import toast from "react-hot-toast";
 import { useProducts } from "./useProducts";
 
@@ -7,11 +7,10 @@ function useEditProduct(product, onClose) {
 
   const [editedProduct, setEditedProduct] = useState({
     ...product,
-    newImages: [], // To store newly added images
+    newImages: [], 
   });
-  const [preview, setPreview] = useState([]); // Store image previews
+  const [preview, setPreview] = useState([]); 
 
-  // Handle input changes
   const handleOnChange = (e) => {
     const { name, value } = e.target;
     setEditedProduct((prevProduct) => ({
@@ -20,11 +19,11 @@ function useEditProduct(product, onClose) {
     }));
   };
 
-  // Handle image selection (new images)
+ 
   const handleImageChange = (e) => {
     const files = Array.from(e.target.files);
 
-    // Create previews for the selected files
+  
     const newPreviews = files.map((file) => URL.createObjectURL(file));
 
     setEditedProduct((prevProduct) => ({
@@ -35,7 +34,7 @@ function useEditProduct(product, onClose) {
     setPreview((prev) => [...prev, ...newPreviews]);
   };
 
-  // Delete existing images
+
   const handleImageDelete = (index) => {
     const updatedImages = editedProduct.images.filter((_, i) => i !== index);
     setEditedProduct((prevProduct) => ({
@@ -44,13 +43,13 @@ function useEditProduct(product, onClose) {
     }));
   };
 
-  // Submit the form data (with both existing and new images)
+ 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const formData = new FormData();
 
-    // Append text data
+   
     formData.append("name", editedProduct.name);
     formData.append("category", editedProduct.category);
     formData.append("brand", editedProduct.brand);
@@ -60,7 +59,7 @@ function useEditProduct(product, onClose) {
     formData.append("description", editedProduct.description);
     formData.append("colour", editedProduct.colour);
 
-    // Handle images: Append existing images (as URLs) and new images (as files)
+   
     editedProduct.images.forEach((imageUrl) => {
       formData.append("existingImages", imageUrl);
     });
@@ -76,10 +75,10 @@ function useEditProduct(product, onClose) {
 
 
       if (onClose) {
-        onClose(); // Ensure onClose is being called properly
+        onClose(); 
       }
       toast.success("prodcut updated successfully")
-      // onClose()
+    
     }
 
 

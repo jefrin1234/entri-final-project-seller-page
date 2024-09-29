@@ -5,7 +5,7 @@ import { axiosInstance } from '../config/axiosInstance';
 
 function NotificationDetails() {
   const { notificationId } = useParams();
-  const [notification, setNotification] = useState(null); // Initialize as null
+  const [notification, setNotification] = useState(null); 
 
   const fetchNotificationDetails = async () => {
     try {
@@ -14,7 +14,7 @@ function NotificationDetails() {
         url: `/seller/notification-details/${notificationId}`,
       });
       console.log(response.data);
-      setNotification(response.data.data); // Assuming data is stored in response.data.data
+      setNotification(response.data.data); 
     } catch (error) {
       console.error('Error fetching notification details', error);
     }
@@ -43,10 +43,10 @@ function NotificationDetails() {
   }, [notificationId]);
 
   if (!notification) {
-    return <div>Loading...</div>; // Render a loading state while data is being fetched
+    return <div>Loading...</div>; 
   }
 
-  // Destructuring the product details from notification.data
+  
   const { name, price, sellingPrice, stock, description, images, brand, colour, category } = notification.data;
 
   return (

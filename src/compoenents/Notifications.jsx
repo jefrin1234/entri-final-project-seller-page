@@ -4,7 +4,7 @@ import toast from 'react-hot-toast';
 import { FaTrashAlt } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
 import LoadingComponent from './LoadingComponent';
-// import fetchNotifications from '../services/fetchNotifications';
+
 import { Link } from 'react-router-dom';
 function Notifications() {
   const [loading, setLoading] = useState(false);
@@ -12,16 +12,12 @@ function Notifications() {
   const readNotifications = useSelector(state => state.user.readNotifications);
   const unReadNotifications = useSelector(state => state.user.unReadNotifications);
 
-  const [activeTab, setActiveTab] = useState('unread'); // Tracks the active section
-
+  const [activeTab, setActiveTab] = useState('unread'); 
   const handleDeleteNotification = async (id) => {
     try {
       await axiosInstance.delete(`/seller/delete-notification/${id}`);
       toast.success('Notification deleted');
-      // Update state here as per your logic
-      
-
-      // fetchNotifications()
+     
     } catch (error) {
       console.log(error);
       toast.error('Failed to delete notification');
@@ -40,7 +36,6 @@ function Notifications() {
     <div className="p-4 bg-violet-200 rounded-lg shadow-lg border border-gray-200 max-w-5xl mx-auto">
       <h2 className="text-2xl md:text-3xl font-bold mb-6  text-center">Notifications</h2>
 
-      {/* Tab Navigation */}
       <div className="md:flex justify-center mb-6  gap-6">
         <button
           className={`text-lg md:text-xl font-semibold mx-2 md:mx-4 pb-1 ${activeTab === 'unread' ? 'text-blue-600 border-b-2 border-blue-600' : 'text-gray-500'}`}
@@ -57,7 +52,7 @@ function Notifications() {
       </div>
 
       <div className="flex flex-col md:flex-row md:space-x-8">
-        {/* Unread Notifications Section */}
+
         <section className={`md:w-1/2 ${activeTab === 'unread' ? 'block' : 'hidden md:block'}`}>
           {unReadNotifications.length === 0 ? (
             <p className="text-center text-gray-500">No unread notifications</p>
@@ -84,7 +79,7 @@ function Notifications() {
           )}
         </section>
 
-        {/* Read Notifications Section */}
+        
         <section className={`md:w-1/2 ${activeTab === 'read' ? 'block' : 'hidden md:block'}`}>
           {readNotifications.length === 0 ? (
             <p className="text-center text-gray-500">No read notifications</p>

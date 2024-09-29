@@ -6,7 +6,7 @@ function Footer() {
     <footer className="bg-green-800  py-8 border-t border-gray-200 mt-8 text-white text-sm">
       <div className="container mx-auto px-4">
         <div className="flex flex-wrap justify-between gap-8">
-          {/* About Section */}
+          
           <div className="w-full md:w-1/4 mb-6 md:mb-0">
             <h2 className="text-lg font-semibold mb-4 border-b border-gray-300 pb-2">About Us</h2>
             <p className=" leading-relaxed">
@@ -14,7 +14,6 @@ function Footer() {
             </p>
           </div>
           
-          {/* Quick Links Section */}
           <div className="w-full md:w-1/4 mb-6 md:mb-0">
             <h2 className="text-lg font-semibold mb-3 ">Quick Links</h2>
             <ul className="space-y-2">
@@ -25,7 +24,7 @@ function Footer() {
             </ul>
           </div>
           
-          {/* Contact Section */}
+          
           <div className="w-full md:w-1/4 mb-6 md:mb-0">
             <h2 className="text-lg font-semibold mb-3 ">Contact Us</h2>
             <p className=" mb-2">
@@ -35,7 +34,7 @@ function Footer() {
             <p className="">City, Country, 12345</p>
           </div>
           
-          {/* Social Media Section */}
+          
           <div className="w-full md:w-1/4 mb-6 md:mb-0 text-center">
             <h2 className="text-lg font-semibold mb-3 ">Follow Us</h2>
             <div className="flex justify-center gap-4">

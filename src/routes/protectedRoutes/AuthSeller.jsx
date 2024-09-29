@@ -16,7 +16,7 @@ export const AuthSeller = ({ children }) => {
         if (!loggedIn) {
             navigate('/');
         }
-    }, [loggedIn, navigate]); // Adding dependencies here
+    }, [loggedIn, navigate]); 
 
 
 

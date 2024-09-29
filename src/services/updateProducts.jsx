@@ -13,12 +13,12 @@ const updateProduct = async (formData, productId,) => {
      
       return response
     } else {
-      // Handle non-200 responses explicitly
+      
       toast.error("Error updating product");
       return null
     }
   } catch (error) {
-    // Catch and log any unexpected errors
+  
     toast.error(" error occurred updating product");
    
   }

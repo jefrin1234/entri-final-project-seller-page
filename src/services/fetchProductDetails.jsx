@@ -7,7 +7,7 @@ const fetchProduct = async (productId) => {
       method:'GET',
       url:`/products/product?productId=${productId}`,
    
-    }); // Example API call
+    }); 
     console.log(response.data.data)
      return response.data.data
   } catch (error) {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { axiosInstance } from '../config/axiosInstance'; // Adjust the import path as needed
+import { axiosInstance } from '../config/axiosInstance'; 
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 
@@ -14,7 +14,7 @@ function Logout({ onClose }) {
       });
       toast.success('Logged out successfully');
       navigate('/');
-      onClose(); // Close the modal after logging out
+      onClose(); 
     } catch (error) {
       toast.error('Error logging out');
     }
@@ -28,13 +28,13 @@ function Logout({ onClose }) {
           
           <button
             className="bg-gray-300 text-black px-4 py-2 rounded-md"
-            onClick={onClose} // Close modal on cancel
+            onClick={onClose}
           >
             Cancel
           </button>
           <button
             className="bg-red-500 text-white px-4 py-2 rounded-md"
-            onClick={handleLogout} // Perform logout
+            onClick={handleLogout} 
           >
             Logout
           </button>

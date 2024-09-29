@@ -1,86 +1,10 @@
-// import React, { useState } from 'react';
+
 import productCategoryList from '../data/productCategory';
-// import { axiosInstance } from "../config/axiosInstance";
+
 
 import useEditProduct from "../hooks/useEditProduct";
 
 
-// function EditProduct({ product, onClose }) {
-  // console.log(product)
-  // const [editedProduct, setEditedProduct] = useState({
-  //   ...product,
-  //   newImages: [], // To store newly added images
-  // });
-  // const [preview, setPreview] = useState([]); // Store image previews
-
-  // // Handle input changes
-  // const handleOnChange = (e) => {
-  //   const { name, value } = e.target;
-  //   setEditedProduct((prevProduct) => ({
-  //     ...prevProduct,
-  //     [name]: value,
-  //   }));
-  // };
-
-  // // Handle image selection (new images)
-  // const handleImageChange = (e) => {
-  //   const files = Array.from(e.target.files);
-
-  //   // Create previews for the selected files
-  //   const newPreviews = files.map((file) => URL.createObjectURL(file));
-
-  //   setEditedProduct((prevProduct) => ({
-  //     ...prevProduct,
-  //     newImages: [...prevProduct.newImages, ...files],
-  //   }));
-
-  //   setPreview((prev) => [...prev, ...newPreviews]);
-  // };
-
-  // // Delete existing images
-  // const handleImageDelete = (index) => {
-  //   const updatedImages = editedProduct.images.filter((_, i) => i !== index);
-  //   setEditedProduct((prevProduct) => ({
-  //     ...prevProduct,
-  //     images: updatedImages,
-  //   }));
-  // };
-
-  // // Submit the form data (with both existing and new images)
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-
-  //   const formData = new FormData();
-
-  //   // Append text data
-  //   formData.append('name', editedProduct.name);
-  //   formData.append('category', editedProduct.category);
-  //   formData.append('brand', editedProduct.brand);
-  //   formData.append('price', editedProduct.price);
-  //   formData.append('sellingPrice', editedProduct.sellingPrice);
-  //   formData.append('stock', editedProduct.stock);
-  //   formData.append('description', editedProduct.description);
-
-  //   // Handle images: Append existing images (as URLs) and new images (as files)
-  //   editedProduct.images.forEach((imageUrl) => {
-  //     formData.append('existingImages', imageUrl); // Existing images from backend (URLs)
-  //   });
-
-  //   editedProduct.newImages.forEach((file) => {
-  //     formData.append('images', file); // New image files to be uploaded
-  //   });
-
-  //   // Debug formData (optional)
-  //   for (const [key, value] of formData.entries()) {
-  //     console.log(`${key}:`, value);
-  //   }
-    
-  //   // Here you would send the formData to the backend, e.g., via an API call.
-  
-     
-  
-  //   onClose();
-  // };
 
   function EditProduct({ product,onClose }) {
     const {
@@ -205,7 +129,7 @@ import useEditProduct from "../hooks/useEditProduct";
               />
             </div>
 
-            {/* Existing Images */}
+          
             <div className="flex flex-col">
               <label className="text-sm font-medium text-gray-700">Existing Images</label>
               <div className="grid grid-cols-3 gap-4">
@@ -226,7 +150,6 @@ import useEditProduct from "../hooks/useEditProduct";
               </div>
             </div>
 
-            {/* New Images */}
             <div className="flex flex-col">
               <label className="text-sm font-medium text-gray-700">Add New Images</label>
               <input

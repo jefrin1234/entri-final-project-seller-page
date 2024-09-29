@@ -8,9 +8,9 @@ function Profile() {
   const {seller} = useSelector(state=>state.user)
   
   const getSellerDetails = async (sellerId) => {
-    const data = await fetchSellerDetails(sellerId); // Fetch the data
+    const data = await fetchSellerDetails(sellerId); 
     if (data) {
-      setSellerData(data.data); // Store the data in the state
+      setSellerData(data.data);
     }
   };
 
@@ -20,7 +20,7 @@ function Profile() {
     if(seller){
       getSellerDetails(seller.id);
     }
-    // Call the async function to fetch data
+
   }, []);
 
   return (
@@ -29,7 +29,7 @@ function Profile() {
 
       {sellerData ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
-          {/* Personal Details Section */}
+          
           <div className="bg-white p-6 rounded-lg shadow-md border">
             <h2 className="text-xl font-bold mb-4 text-green-600">Personal Details</h2>
             <p><strong>Name:</strong> {sellerData.name}</p>
@@ -37,7 +37,7 @@ function Profile() {
             <p><strong>Phone:</strong> {sellerData.phone}</p>
           </div>
 
-          {/* Business Details Section */}
+        
           <div className="bg-white p-6 rounded-lg shadow-md border">
             <h2 className="text-xl font-bold mb-4 text-green-600">Business Details</h2>
             <p><strong>Business Name:</strong> {sellerData.businessName}</p>
@@ -45,7 +45,7 @@ function Profile() {
             <p><strong>PAN:</strong> {sellerData.pan}</p>
           </div>
 
-          {/* Address Details Section */}
+        
           <div className="bg-white p-6 rounded-lg shadow-md border">
             <h2 className="text-xl font-bold mb-4 text-green-600">Address Details</h2>
             <p><strong>City:</strong> {sellerData.city}</p>
@@ -53,7 +53,7 @@ function Profile() {
             <p><strong>Postal Code:</strong> {sellerData.postalCode}</p>
           </div>
 
-          {/* Bank Details Section */}
+     
           <div className="bg-white p-6 rounded-lg shadow-md border">
             <h2 className="text-xl font-bold mb-4 text-green-600">Bank Details</h2>
             <p><strong>Account Holder Name:</strong> {sellerData.accountHolderName}</p>
@@ -62,7 +62,7 @@ function Profile() {
             <p><strong>IFSC Code:</strong> {sellerData.ifsc}</p>
           </div>
 
-          {/* Additional Information Section */}
+        
           <div className="bg-white p-6 rounded-lg shadow-md border">
             <h2 className="text-xl font-bold mb-4 text-green-600">Additional Information</h2>
             <p><strong>Pickup Location:</strong> {sellerData.pickupLocation}</p>
