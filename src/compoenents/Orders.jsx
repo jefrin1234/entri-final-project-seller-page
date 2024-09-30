@@ -31,7 +31,7 @@ function SellerOrders() {
     try {
       console.log(orderId, itemId, newStatus);
       const response = await axiosInstance({
-        method: 'PATCH',
+        method: 'POST',
         url: '/orders/update-order',
         data: {
           orderId: orderId,
