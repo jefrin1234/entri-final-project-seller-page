@@ -167,5 +167,3 @@ function UploadProduct() {
 }
 
 export default UploadProduct;
-
-

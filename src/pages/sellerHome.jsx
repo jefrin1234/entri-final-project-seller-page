@@ -14,17 +14,17 @@ function SellerHome() {
   const unReadNotifications = useSelector(state => state.user.unReadNotifications);
 
   const handleLinkClick = () => {
-    setIsSidebarOpen(false);  // Close the sidebar when a link is clicked
+    setIsSidebarOpen(false); 
   };
 
   const handleBackdropClick = () => {
-    setIsSidebarOpen(false);  // Close the sidebar when clicking on the backdrop
+    setIsSidebarOpen(false); 
   };
 
 
   return (
     <div className="flex h-screen mt-8">
-      {/* Sidebar */}
+  
       <aside className={`bg-gradient-to-b from-green-500 to-green-700 text-white w-64 max-w-xs shadow-xl border-r border-gray-200 flex-shrink-0 fixed inset-y-0 transform ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 z-30 sm:relative sm:translate-x-0 overflow-auto`}>
         <div className="p-6 flex justify-between items-center">
           <h2 className="text-xl font-bold">Dashboard</h2>
@@ -101,7 +101,7 @@ function SellerHome() {
         </nav>
       </aside>
 
-      {/* Backdrop for mobile view */}
+    
       {isSidebarOpen && (
         <div
           className="fixed inset-0 bg-black opacity-50 z-20 sm:hidden"
@@ -109,7 +109,7 @@ function SellerHome() {
         ></div>
       )}
 
-      {/* Mobile menu button */}
+     
       <div className="flex items-center justify-center p-4 bg-green-600 sm:hidden">
         <button onClick={() => setIsSidebarOpen(!isSidebarOpen)} className="text-white">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="h-6 w-6">
@@ -118,7 +118,7 @@ function SellerHome() {
         </button>
       </div>
 
-      {/* Main Content */}
+    
       <main className="flex-1 p-8 bg-gray-100  overflow-y-auto">
         <Outlet />
       </main>

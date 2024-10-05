@@ -18,6 +18,8 @@ function ProductRatings() {
         url: `rating/product/${productId}?page=${page}&limit=${ITEMS_PER_PAGE}`,
       });
 
+      console.log(response.data.data)
+
       if (response) {
         setRatings(response.data.data); 
         setTotalRatings(response.data.totalRatings); 

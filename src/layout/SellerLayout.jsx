@@ -8,47 +8,18 @@ import { axiosInstance } from '../config/axiosInstance'
 
 import Footer from '../compoenents/Footer'
 import SellerHeader from '../compoenents/SellerHeader'
+import fetchNotifications from '../services/fetchNotifications'
 
 
 function SellerLayout() {
 
   const dispatch = useDispatch()
 
-  const fetchNotifications = async () => {
-    try {
-      const response = await axiosInstance({
-        method: 'GET',
-        url: '/seller/notifications',
-      });
 
-      const notifications = response.data.data || [];
-      console.log(notifications)
-
-
-     const readNotification =  notifications.filter(notification => notification.isRead)
-
-
-    
-     const unreadNotifications =   notifications.filter(notification => !notification.isRead)
-
-  
-
-      dispatch(setSellerNotifications({readNotifications:readNotification,
-        unReadNotifications:unreadNotifications,
-        allNotifications:notifications}))
-
-
-
-
-    } catch (error) {
-      console.log(error);
-      toast.error('Failed to fetch notifications');
-    } 
-  };
 
    useEffect(()=>{
-    fetchNotifications()
-   },[])
+    fetchNotifications(dispatch)
+   },[dispatch])
 
   
 

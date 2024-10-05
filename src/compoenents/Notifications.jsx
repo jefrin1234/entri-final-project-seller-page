@@ -2,21 +2,24 @@ import React, { useState } from 'react';
 import { axiosInstance } from '../config/axiosInstance';
 import toast from 'react-hot-toast';
 import { FaTrashAlt } from 'react-icons/fa';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import LoadingComponent from './LoadingComponent';
 
 import { Link } from 'react-router-dom';
+import fetchNotifications from '../services/fetchNotifications';
 function Notifications() {
   const [loading, setLoading] = useState(false);
-
+  const dispatch = useDispatch()
   const readNotifications = useSelector(state => state.user.readNotifications);
   const unReadNotifications = useSelector(state => state.user.unReadNotifications);
 
   const [activeTab, setActiveTab] = useState('unread'); 
+
   const handleDeleteNotification = async (id) => {
     try {
       await axiosInstance.delete(`/seller/delete-notification/${id}`);
       toast.success('Notification deleted');
+      fetchNotifications(dispatch)
      
     } catch (error) {
       console.log(error);

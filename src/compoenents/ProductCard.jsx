@@ -45,7 +45,7 @@ function ProductCard({ product }) {
             className="bg-yellow-500 text-white font-semibold px-4 py-2 rounded-full hover:bg-yellow-600 transition-colors flex items-center justify-center gap-2"
           >
             <Star size={16} />
-            View Ratings
+             Ratings
           </button>
         </div>
       </div>
